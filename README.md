@@ -1,4 +1,4 @@
-# Twitter
+# Tweeter
 
 # Project 3 - *Tweeter*
 
