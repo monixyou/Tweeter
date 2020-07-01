@@ -59,8 +59,14 @@
     cell.screenNameLabel.text = cell.tweet.user.screenName;
     cell.createdAtLabel.text = cell.tweet.createdAtString;
     cell.tweetLabel.text = cell.tweet.text;
-    cell.retweetedCountLabel.text = [NSString stringWithFormat:@"%i", cell.tweet.retweetCount]; ;
+    cell.retweetedCountLabel.text = [NSString stringWithFormat:@"%i", cell.tweet.retweetCount];
     cell.favoritedCountLabel.text = [NSString stringWithFormat:@"%i", cell.tweet.favoriteCount];
+        
+    NSString *profileImageBlurry = cell.tweet.user.profileImage;
+    NSString *profileImageUnBlurry = [profileImageBlurry stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
+    NSURL *profileImageURL = [NSURL URLWithString:profileImageUnBlurry];
+    cell.profilePicture.image = nil;
+    [cell.profilePicture setImageWithURL:profileImageURL];
     
     return cell;
 }
