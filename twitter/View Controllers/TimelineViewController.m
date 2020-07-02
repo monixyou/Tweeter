@@ -94,8 +94,11 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    
     if ([segue.identifier isEqual: @"ShowComposeTweet"]) {
-        ComposeViewController *composeController = [segue destinationViewController];
+        
+        UINavigationController *dest = (UINavigationController *)segue.destinationViewController;
+        ComposeViewController *composeController = (ComposeViewController *)dest.topViewController;
         composeController.delegate = self;
     }
     else if ([segue.identifier isEqual: @"ShowTweetDetails"]) {
