@@ -6,6 +6,8 @@
 //
 
 #import "ComposeViewController.h"
+#import "APIManager.h"
+#import "Tweet.h"
 
 @interface ComposeViewController ()
 
@@ -26,6 +28,16 @@
 }
 
 - (IBAction)onTweet:(id)sender {
+    NSLog(@"%@", self.composeTextView.text);
+    
+    [[APIManager shared] postStatusWithText:self.composeTextView.text completion:^(Tweet *tweet, NSError *error) {
+        if (error) {
+            NSLog(@"Error posting tweet: %@", error.localizedDescription);
+        } else {
+            [self.delegate didTweet:tweet];
+            NSLog(@"Successfully tweeted! Tweet: %@", tweet.text);
+        }
+    }];
 }
 
 /*
