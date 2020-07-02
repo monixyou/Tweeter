@@ -12,11 +12,11 @@ The following **required** functionality is completed:
 
 - [X] User sees app icon in home screen and styled launch screen
 - [X] User can sign in using OAuth login flow
-- [ ] User can Logout
+- [X] User can Logout
 - [X] User can view last 20 tweets from their home timeline
 - [X] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
 - [X] User can pull to refresh.
-- [ ] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
+- [X] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
 - [X] User can compose a new tweet by tapping on a compose button.
 - [ ] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
 - [ ] User should display the relative timestamp for each tweet "8m", "7h"
@@ -28,7 +28,7 @@ The following **stretch** features are implemented:
   - Contains the user header view: picture and tagline
   - Contains a section with the users basic stats: # tweets, # following, # followers
   - [ ] Profile view should include that user's timeline
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
+- [X] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
 - [ ] Links in tweets are clickable.
 - [ ] User can tap the profile image in any tweet to see another user's profile
   - Contains the user header view: picture and tagline
@@ -74,6 +74,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - [STTweetLabel](https://cocoapods.org/pods/STTweetLabel) - custom UILabel for iOS with certain words tappable like Twitter (#Hashtag, @Handle and links)
+- [DateTools](https://github.com/MatthewYork/DateTools) - streamline date and time handling in iOS
 
 ## License
 
