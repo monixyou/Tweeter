@@ -152,7 +152,8 @@
                                             <outlet property="retweetedButton" destination="gMy-Cc-wfm" id="zsW-Kx-cHo"/>
                                             <outlet property="retweetedCountLabel" destination="Fa4-rZ-eNK" id="olC-28-7T1"/>
                                             <outlet property="screenNameLabel" destination="rXH-Sh-rvI" id="dVS-3X-4bK"/>
-                                            <outlet property="tweetLabel" destination="wPH-zG-mTX" id="oJP-Zc-1Pw"/>
+                                            <outlet property="tweetLabel" destination="wPH-zG-mTX" id="93W-qA-CgO"/>
+                                            <segue destination="024-QB-5oc" kind="show" identifier="ShowTweetDetails" id="ww1-Gk-EAc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +170,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="5oq-Mu-Mvm">
                             <connections>
-                                <segue destination="hzb-5b-0Yo" kind="presentation" id="iPS-Q0-Jn8"/>
+                                <segue destination="hzb-5b-0Yo" kind="presentation" identifier="ShowComposeTweet" id="iPS-Q0-Jn8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -181,6 +182,136 @@
             </objects>
             <point key="canvasLocation" x="1659.4202898550725" y="36.160714285714285"/>
         </scene>
+        <!--Tweet Details View Controller-->
+        <scene sceneID="Dcz-4i-pW3">
+            <objects>
+                <viewController id="024-QB-5oc" customClass="TweetDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tVP-DD-7Mp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-sa-A9w">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbd-z1-gcG">
+                                        <rect key="frame" x="0.0" y="-7" width="414" height="798"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-Pr-nct">
+                                                <rect key="frame" x="17" y="54" width="77" height="68"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCO-QB-bEO">
+                                                <rect key="frame" x="117" y="54" width="117" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@screenName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toe-CE-Hgw">
+                                                <rect key="frame" x="193" y="54" width="112" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XX/XX/XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C58-CQ-Bdb">
+                                                <rect key="frame" x="329" y="53" width="77" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tweet description text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEx-eZ-LY4" customClass="STTweetLabel">
+                                                <rect key="frame" x="110" y="91" width="296" height="104"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf4-q4-evZ">
+                                                <rect key="frame" x="148" y="238" width="44" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57G-bs-zp0">
+                                                <rect key="frame" x="272" y="238" width="53" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeL-Fs-INC">
+                                                <rect key="frame" x="102" y="234" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="retweet-icon"/>
+                                                <connections>
+                                                    <action selector="didTapRetweet:" destination="024-QB-5oc" eventType="touchUpInside" id="Mov-lq-xlf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBD-Vg-4ku">
+                                                <rect key="frame" x="226" y="233" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="favor-icon"/>
+                                                <connections>
+                                                    <action selector="didTapFavorite:" destination="024-QB-5oc" eventType="touchUpInside" id="k2w-LX-ixH"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reply to Tweet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-of-lTm">
+                                                <rect key="frame" x="52" y="326" width="118" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1i-Wy-9AO">
+                                                <rect key="frame" x="56" y="521" width="39" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Reply"/>
+                                                <connections>
+                                                    <action selector="didTapReply:" destination="024-QB-5oc" eventType="touchUpInside" id="6tM-8l-nwy"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Reply here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7K-PT-m7V">
+                                                <rect key="frame" x="49" y="355" width="317" height="152"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="z2M-yZ-0hL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IHj-tW-jel"/>
+                    <connections>
+                        <outlet property="createdAtLabel" destination="C58-CQ-Bdb" id="iZq-dU-A1S"/>
+                        <outlet property="favoritedButton" destination="mBD-Vg-4ku" id="cfb-6T-jwo"/>
+                        <outlet property="favoritedCountLabel" destination="57G-bs-zp0" id="GOX-FN-FOA"/>
+                        <outlet property="nameLabel" destination="fCO-QB-bEO" id="btH-e0-f8C"/>
+                        <outlet property="profilePicture" destination="yMq-Pr-nct" id="TQO-By-LUH"/>
+                        <outlet property="replyTextView" destination="n7K-PT-m7V" id="kSx-db-4Sg"/>
+                        <outlet property="retweetedButton" destination="GeL-Fs-INC" id="FrC-IT-taL"/>
+                        <outlet property="retweetedCountLabel" destination="Tf4-q4-evZ" id="243-uV-Irn"/>
+                        <outlet property="screenNameLabel" destination="toe-CE-Hgw" id="Q3Y-lX-WdD"/>
+                        <outlet property="tweetLabel" destination="jEx-eZ-LY4" id="VZV-Zu-aQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rox-1K-Hrm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533.3333333333335" y="36.830357142857139"/>
+        </scene>
         <!--Compose View Controller-->
         <scene sceneID="O3w-ay-ozD">
             <objects>
@@ -189,11 +320,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-6X-eIT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sample tweet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-6X-eIT">
                                 <rect key="frame" x="72" y="143" width="240" height="310"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip eLorem ipsum dolor sit er elit lamet, consectetaur cil</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -220,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTt-o0-tgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657.9710144927537" y="777.45535714285711"/>
+            <point key="canvasLocation" x="1659" y="766"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -256,7 +386,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygd-ly-4oI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="777"/>
+            <point key="canvasLocation" x="859" y="766"/>
         </scene>
     </scenes>
     <resources>
