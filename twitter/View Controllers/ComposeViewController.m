@@ -28,8 +28,6 @@
 }
 
 - (IBAction)onTweet:(id)sender {
-    NSLog(@"%@", self.composeTextView.text);
-    
     [[APIManager shared] postStatusWithText:self.composeTextView.text completion:^(Tweet *tweet, NSError *error) {
         if (error) {
             NSLog(@"Error posting tweet: %@", error.localizedDescription);
