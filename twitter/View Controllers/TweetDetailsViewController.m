@@ -135,7 +135,16 @@
 }
 
 - (IBAction)didTapReply:(id)sender {
+    NSString *reply_text = [NSString stringWithFormat:@"Replying to @%@\n%@", self.tweet.user.screenName, self.replyTextView.text];
     
+    [[APIManager shared] replyStatusWithText:reply_text reply_status_id:self.tweet.idStr completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error replying to tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully replied with the following Tweet: %@", tweet.text);
+        }
+    }];
 }
 
 /*
