@@ -42,14 +42,15 @@
 
 - (IBAction)onTweet:(id)sender {
     [[APIManager shared] postStatusWithText:self.composeTextView.text completion:^(Tweet *tweet, NSError *error) {
+        [self.view endEditing:YES];
         if (error) {
             NSLog(@"Error posting tweet: %@", error.localizedDescription);
         } else {
             [self.delegate didTweet:tweet];
+            self.composeTextView.text = @"";
             [self actionAlert:@"Success" message:@"Tweet successfully sent!"];
             NSLog(@"Successfully tweeted! Tweet: %@", tweet.text);
         }
-        [self dismissViewControllerAnimated:true completion:nil];
     }];
 }
 
