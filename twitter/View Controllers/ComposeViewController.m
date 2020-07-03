@@ -30,6 +30,7 @@
 }
 
 - (void) actionAlert:(NSString *)title message:(NSString *)msg  {
+    __weak __typeof(self) weakSelf = self;
     UIAlertController * alertvc = [UIAlertController alertControllerWithTitle: title
                                    message: msg preferredStyle: UIAlertControllerStyleAlert
                                   ];
@@ -37,7 +38,7 @@
                               style: UIAlertActionStyleDefault handler: ^ (UIAlertAction * _Nonnull action) {}
                              ];
     [alertvc addAction: action];
-    [self presentViewController: alertvc animated: true completion: nil];
+    [weakSelf presentViewController: alertvc animated: true completion: nil];
 }
 
 - (IBAction)onTweet:(id)sender {
