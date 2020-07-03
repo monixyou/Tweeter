@@ -139,14 +139,28 @@
     self.favoritedCountLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
 }
 
+- (void) actionAlert:(NSString *)title message:(NSString *)msg  {
+    UIAlertController * alertvc = [UIAlertController alertControllerWithTitle: title
+                                   message: msg preferredStyle: UIAlertControllerStyleAlert
+                                  ];
+    UIAlertAction * action = [UIAlertAction actionWithTitle: @ "Dismiss"
+                              style: UIAlertActionStyleDefault handler: ^ (UIAlertAction * _Nonnull action) {}
+                             ];
+    [alertvc addAction: action];
+    [self presentViewController: alertvc animated: true completion: nil];
+}
+
 - (IBAction)didTapReply:(id)sender {
-    NSString *reply_text = [NSString stringWithFormat:@"Replying to @%@\n%@", self.tweet.user.screenName, self.replyTextView.text];
+    NSString *reply_text = [NSString stringWithFormat:@"Replying to %@\n%@", self.tweet.user.screenName, self.replyTextView.text];
     
     [[APIManager shared] replyStatusWithText:reply_text reply_status_id:self.tweet.idStr completion:^(Tweet *tweet, NSError *error) {
         if(error){
              NSLog(@"Error replying to tweet: %@", error.localizedDescription);
         }
         else{
+            [self.delegate didReply:tweet];
+            self.replyTextView.text = @"";
+            [self actionAlert:@"Success" message:@"Reply successfully sent!"];
             NSLog(@"Successfully replied with the following Tweet: %@", tweet.text);
         }
     }];

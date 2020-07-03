@@ -15,7 +15,7 @@
 #import "LoginViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <TweetDetailsViewControllerDelegate, ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -77,6 +77,11 @@
     [self.tableView reloadData];
 }
 
+- (void)didReply:(Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
+}
+
 - (IBAction)onLogout:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         
@@ -110,9 +115,10 @@
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Tweet *tweet = self.tweets[indexPath.row];
-                
+
         TweetDetailsViewController *tweetDetailsController = [segue destinationViewController];
         tweetDetailsController.tweet = tweet;
+        tweetDetailsController.delegate = self;
     }
 }
 

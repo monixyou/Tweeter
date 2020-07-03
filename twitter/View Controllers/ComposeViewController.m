@@ -29,14 +29,27 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (void) actionAlert:(NSString *)title message:(NSString *)msg  {
+    UIAlertController * alertvc = [UIAlertController alertControllerWithTitle: title
+                                   message: msg preferredStyle: UIAlertControllerStyleAlert
+                                  ];
+    UIAlertAction * action = [UIAlertAction actionWithTitle: @ "Dismiss"
+                              style: UIAlertActionStyleDefault handler: ^ (UIAlertAction * _Nonnull action) {}
+                             ];
+    [alertvc addAction: action];
+    [self presentViewController: alertvc animated: true completion: nil];
+}
+
 - (IBAction)onTweet:(id)sender {
     [[APIManager shared] postStatusWithText:self.composeTextView.text completion:^(Tweet *tweet, NSError *error) {
         if (error) {
             NSLog(@"Error posting tweet: %@", error.localizedDescription);
         } else {
             [self.delegate didTweet:tweet];
+            [self actionAlert:@"Success" message:@"Tweet successfully sent!"];
             NSLog(@"Successfully tweeted! Tweet: %@", tweet.text);
         }
+        [self dismissViewControllerAnimated:true completion:nil];
     }];
 }
 
