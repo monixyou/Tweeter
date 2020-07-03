@@ -4,7 +4,7 @@
 
 **Tweeter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -44,8 +44,8 @@ The following **stretch** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
-- [X] Users receive an alert when successfully composing a tweet
-- [X] Users receive an alert when successfully replying to a tweet
+- [X] Users receive a UIAlert when successfully composing a tweet
+- [X] Users receive a UIAlert when successfully replying to a tweet
 
 ### Starter project
 The starter project can be found in the `starter-project` tag. Download and run `pod install`.
@@ -55,14 +55,14 @@ https://paper.dropbox.com/doc/Twitter--ADuVCVvwop_njSNAbUU96Q2VAQ-g255BPX3K4X7G0
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
+1. Is there a better way to implement the TweetCell and TweetDescriptionViewController? A lot of the code and IBOutlets were dublicated. Is there a way to have all the code in one place for both implementations?
 2.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/Z8zgtkcPrM.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Recordit](https://recordit.co/).
 
