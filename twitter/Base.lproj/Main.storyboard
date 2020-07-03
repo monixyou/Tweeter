@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbd-z1-gcG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="326"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="374"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-Pr-nct">
                                                 <rect key="frame" x="8" y="8" width="75" height="75"/>
@@ -286,7 +286,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1i-Wy-9AO">
-                                                <rect key="frame" x="331" y="288" width="75" height="30"/>
+                                                <rect key="frame" x="331" y="336" width="75" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="2Ie-EV-mNq"/>
@@ -300,16 +300,16 @@
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7K-PT-m7V">
-                                                <rect key="frame" x="8" y="128" width="398" height="152"/>
+                                                <rect key="frame" x="8" y="128" width="398" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="152" id="8fK-XA-8gl"/>
+                                                    <constraint firstAttribute="height" constant="200" id="uAE-Hs-NoW"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reply to Tweet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-of-lTm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reply to Tweet (280 character limit)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-of-lTm">
                                                 <rect key="frame" x="8" y="99" width="398" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -397,16 +397,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sample tweet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-6X-eIT">
-                                <rect key="frame" x="72" y="143" width="240" height="310"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-6X-eIT">
+                                <rect key="frame" x="20" y="105" width="374" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compose a Tweet (280 character limit)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-kv-fqD">
+                                <rect key="frame" x="20" y="76" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KCT-kv-fqD" firstAttribute="leading" secondItem="Q8H-hN-Rit" secondAttribute="leading" constant="20" id="7Aw-i6-4ox"/>
+                            <constraint firstItem="KCT-kv-fqD" firstAttribute="top" secondItem="Q8H-hN-Rit" secondAttribute="top" constant="20" id="9KT-hB-Kj4"/>
+                            <constraint firstItem="Q8H-hN-Rit" firstAttribute="trailing" secondItem="uwU-6X-eIT" secondAttribute="trailing" constant="20" id="L0T-tR-Lif"/>
+                            <constraint firstItem="Q8H-hN-Rit" firstAttribute="trailing" secondItem="KCT-kv-fqD" secondAttribute="trailing" constant="20" id="P08-gc-iER"/>
+                            <constraint firstItem="Q8H-hN-Rit" firstAttribute="bottom" secondItem="uwU-6X-eIT" secondAttribute="bottom" constant="15" id="bKd-F6-2LZ"/>
+                            <constraint firstItem="uwU-6X-eIT" firstAttribute="leading" secondItem="Q8H-hN-Rit" secondAttribute="leading" constant="20" id="e21-rm-nrE"/>
+                            <constraint firstItem="uwU-6X-eIT" firstAttribute="top" secondItem="KCT-kv-fqD" secondAttribute="bottom" constant="8" id="shn-uc-npV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q8H-hN-Rit"/>
                     </view>
                     <navigationItem key="navigationItem" id="UmO-J6-hcD">

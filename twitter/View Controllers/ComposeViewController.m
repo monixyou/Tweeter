@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.composeTextView.layer.borderWidth = 1.0f;
+    self.composeTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 - (IBAction)onClose:(id)sender {
