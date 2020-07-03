@@ -44,6 +44,8 @@ The following **stretch** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [X] Users receive an alert when successfully composing a tweet
+- [X] Users receive an alert when successfully replying to a tweet
 
 ### Starter project
 The starter project can be found in the `starter-project` tag. Download and run `pod install`.
