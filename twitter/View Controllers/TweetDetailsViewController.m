@@ -49,6 +49,11 @@
         NSURL *profileImageURL = [NSURL URLWithString:profileImageUnBlurry];
         [self.profilePicture setImageWithURL:profileImageURL];
     }
+    
+    // UI Adjustments
+    self.replyTextView.layer.borderWidth = 1.0f;
+    self.replyTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+
 }
 
 -(void)updateRetweetButtonImage {
